@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Comparison
-nav_order: 2
+nav_order: 3
 ---
 # Comparative Analysis: PuppetPC vs. Other Remote Access Solutions
 Choosing the right remote access solution is vital for ensuring secure and efficient operation, whether for personal or professional use. This comparative analysis aims to provide a clear understanding of how PuppetPC stacks up against other popular solutions like Cloudflare Tunnel and ngrok. Each of these tools has unique features and capabilities, making them suitable for different use cases. This comparison will help you decide which tool aligns best with your specific needs.
