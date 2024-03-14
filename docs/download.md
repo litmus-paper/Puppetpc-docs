@@ -59,24 +59,62 @@ box-shadow: 0 0 0 2px var(--border-gradient, linear-gradient(#6f55d5, #5739ce)) 
     <!-- Suggested download card content will be inserted here by JavaScript -->
 </div>
 
-<h3>All Downloads</h3>
-<ul class="list-group">
-    <li class="list-group-item">Windows: <a href="/downloads/windows/package.exe">Download .exe</a></li>
-    <li class="list-group-item">MacOS: <a href="/downloads/macos/package.dmg">Download .dmg</a></li>
-    <li class="list-group-item">Linux: <a href="/downloads/linux/package.tar.gz">Download .tar.gz</a></li>
-    <!-- Add more OS-specific downloads as needed -->
-</ul>
+## All Downloads
+### Windows
+* [Download .exe](https://api.puppetpc.com/manage/static/release/puppetpc-windows-amd64.exe)
+
+### Mac
+* [Download for Mac OS amd64](https://api.puppetpc.com/manage/static/release/puppetpc-darwin-amd64)
+* [Download for Mac OS arm64](https://api.puppetpc.com/manage/static/release/puppetpc-darwin-arm64)  
+
+### Debian Linux
+Use this for Ubuntu, Linux Mint, Raspbian, Kali Linux, and other Debian-based Linux distributions.  
+* [Download for PC-based machines](https://api.puppetpc.com/manage/static/release/puppetpc_48.0.0-1_amd64.deb)  
+* [Download for ARM64 devices, like Raspberry Pi 4 and NVIDIA Jetson](https://api.puppetpc.com/manage/static/release/puppetpc_48.0.0-1_arm64.deb) 
+* [Download for ARM32 devices, like older Raspberry Pi models running a 32-bit OS](https://api.puppetpc.com/manage/static/release/puppetpc_48.0.0-1_armhf.deb)  
+
+### Red Hat Linux
+* [Download for PC-based machines](https://api.puppetpc.com/manage/static/release/puppetpc-48.0.0-2.x86_64.rpm)
+* [Download for ARM64 devices](https://api.puppetpc.com/manage/static/release/puppetpc-48.0.0-2.arm64.rpm)
+* [Download for ARM32 devices](https://api.puppetpc.com/manage/static/release/puppetpc-48.0.0-2.amdhf.rpm)
+
+### Other Linux Distributions
+Use the following executables for other Linux distributions like Arch Linux, Slackware, and Gentoo.
+* [Download for PC-based machines](https://api.puppetpc.com/manage/static/release/puppetpc-linux-amd64)
+* [Download for ARM64 devices](https://api.puppetpc.com/manage/static/release/puppetpc-linux-arm64)
+* [Download for ARM32 devices](https://api.puppetpc.com/manage/static/release/puppetpc-linux-arm32)
+
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    var os = "Unknown OS";
-    var downloadLink = "";
-    var downloadText = "";
-    var guideLink = "/docs/installation.html";
 
-    if (navigator.appVersion.indexOf("Win") != -1) { os = "Windows"; downloadLink = "/downloads/windows/package.exe"; downloadText = "Download for Windows"; }
-    if (navigator.appVersion.indexOf("Mac") != -1) { os = "MacOS"; downloadLink = "/downloads/macos/package.dmg"; downloadText = "Download for MacOS"; }
-    if (navigator.appVersion.indexOf("X11") != -1 || navigator.appVersion.indexOf("Linux") != -1) { os = "Linux"; downloadLink = "/downloads/linux/package.tar.gz"; downloadText = "Download for Linux"; }
+document.addEventListener('DOMContentLoaded', function() {
+    var os = "Windows";
+    var downloadLink = "/downloads/windows/package.exe";
+    var downloadText = "Download for Windows";
+    var guideLink = "installation.html";
+    var arch = navigator.platform.indexOf("64") !== -1 ? "64" : "32";
+
+    if (navigator.appVersion.indexOf("Win") !== -1) {
+        os = "Windows";
+        downloadLink = "/downloads/windows/package.exe";
+        downloadText = "Download for Windows";
+    } else if (navigator.appVersion.indexOf("Mac") !== -1) {
+        os = "MacOS";
+        arch = navigator.userAgent.indexOf("arm64") !== -1 ? "arm64" : "amd64";
+        downloadLink = `/downloads/macos/package-${arch}.dmg`;
+        downloadText = `Download for MacOS (${arch})`;
+    } else if (navigator.appVersion.indexOf("X11") !== -1 || navigator.appVersion.indexOf("Linux") !== -1) {
+        os = "Linux";
+        if (navigator.userAgent.indexOf("arm64") !== -1) {
+            arch = "arm64";
+        } else if (navigator.userAgent.indexOf("armhf") !== -1) {
+            arch = "armhf";
+        } else {
+            arch = "amd64";
+        }
+        downloadLink = `/downloads/linux/package-${arch}.tar.gz`;
+        downloadText = `Download for Linux (${arch})`;
+    }
 
     var suggestedDownloadCard = document.getElementById('suggestedDownload');
     suggestedDownloadCard.innerHTML = `
@@ -84,10 +122,12 @@ document.addEventListener('DOMContentLoaded', function() {
             <h2 class="card-title">Suggested Download for ${os}</h5>
             <br>
             <a href="${downloadLink}" class="btn btn-primary">${downloadText}</a>
-            <p class="card-text"><a href="${guideLink}">View Installation Guide</a></p> <!-- Link to the installation guide -->
+            <p class="card-text"><a href="${guideLink}">View Installation Guide</a></p>
         </div>
     `;
 });
+
+
 </script>
 
 
