@@ -86,48 +86,52 @@ Use the following executables for other Linux distributions like Arch Linux, Sla
 
 
 <script>
-
 document.addEventListener('DOMContentLoaded', function() {
-    var os = "Windows";
-    var downloadLink = "/downloads/windows/package.exe";
-    var downloadText = "Download for Windows";
-    var guideLink = "installation.html";
-    var arch = navigator.platform.indexOf("64") !== -1 ? "64" : "32";
+    let os = "Windows";
+    let downloadLink = "https://api.puppetpc.com/manage/static/release/puppetpc-windows-amd64.exe";
+    let downloadText = "Download for Windows";
+    let arch = "amd64";
 
     if (navigator.appVersion.indexOf("Win") !== -1) {
         os = "Windows";
-        downloadLink = "/downloads/windows/package.exe";
+        downloadLink = "https://api.puppetpc.com/manage/static/release/puppetpc-windows-amd64.exe";
         downloadText = "Download for Windows";
-    } else if (navigator.appVersion.indexOf("Mac") !== -1) {
+    } 
+    else if (navigator.appVersion.indexOf("Mac") !== -1) {
         os = "MacOS";
         arch = navigator.userAgent.indexOf("arm64") !== -1 ? "arm64" : "amd64";
-        downloadLink = `/downloads/macos/package-${arch}.dmg`;
+        downloadLink = `https://api.puppetpc.com/manage/static/release/puppetpc-darwin-${arch}`;
         downloadText = `Download for MacOS (${arch})`;
-    } else if (navigator.appVersion.indexOf("X11") !== -1 || navigator.appVersion.indexOf("Linux") !== -1) {
+    } 
+    else if (navigator.appVersion.indexOf("X11") !== -1 || navigator.appVersion.indexOf("Linux") !== -1) {
         os = "Linux";
         if (navigator.userAgent.indexOf("arm64") !== -1) {
             arch = "arm64";
-        } else if (navigator.userAgent.indexOf("armhf") !== -1) {
+            downloadLink = "https://api.puppetpc.com/manage/static/release/puppetpc_48.0.0-1_arm64.deb";
+            downloadText = "Download for Linux (ARM64)";
+        } 
+        else if (navigator.userAgent.indexOf("armhf") !== -1) {
             arch = "armhf";
-        } else {
+            downloadLink = "https://api.puppetpc.com/manage/static/release/puppetpc_48.0.0-1_armhf.deb";
+            downloadText = "Download for Linux (ARM32)";
+        } 
+        else {
             arch = "amd64";
+            downloadLink = "https://api.puppetpc.com/manage/static/release/puppetpc_48.0.0-1_amd64.deb";
+            downloadText = "Download for Linux (AMD64)";
         }
-        downloadLink = `/downloads/linux/package-${arch}.tar.gz`;
-        downloadText = `Download for Linux (${arch})`;
     }
 
     var suggestedDownloadCard = document.getElementById('suggestedDownload');
     suggestedDownloadCard.innerHTML = `
         <div class="card-body">
-            <h2 class="card-title">Suggested Download for ${os}</h5>
+            <h2 class="card-title">Suggested Download for ${os}</h2>
             <br>
             <a href="${downloadLink}" class="btn btn-primary">${downloadText}</a>
-            <p class="card-text"><a href="${guideLink}">View Installation Guide</a></p>
+            <p class="card-text"><a href="installation.html">View Installation Guide</a></p>
         </div>
     `;
 });
-
-
 </script>
 
 
