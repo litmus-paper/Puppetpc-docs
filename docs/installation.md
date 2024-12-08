@@ -24,7 +24,7 @@ Before beginning the installation process, ensure that your system meets the fol
 - Administrative access to your computer.
 
 ## Installation on Windows
-1. **Download the Installer:** Visit the PuppetPC website and download the [Windows installer](https://api.puppetpc.com/static/release/puppetpc-windows-amd64.exe).
+1. **Download the Installer:** Visit the PuppetPC website and download the [Windows standalone runtime](https://api.puppetpc.com/static/release/puppetpc-windows-amd64.exe).
 2. **Run the Installer:** Find the downloaded `.exe` file and double-click it to initiate the installation.
 3. **Verify Installation:** A terminal window will open, indicating PuppetPC is operational. Keep this terminal window open to sustain the connection.
 4. **Control Interface:** The control interface will launch in your default web browser.

@@ -1797,6 +1797,35 @@
         line-height: 60px
       }
     }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 50%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      margin: 0 auto;
+      /* Make video container full width on mobile */
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* Add responsive breakpoint for larger screens */
+    @media (min-width: 1024px) {
+      .video-container {
+        max-width: 800px;
+      }
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 1rem;
+    }
   </style>
   <script type="text/javascript">
     (function (c, l, a, r, i, t, y) {
@@ -1857,34 +1886,37 @@
   </header>
   <section class="code-section overflow-hidden font-['IBM_Plex_Sans']" id="j0ootj">
     <div
-      class="relative mx-auto flex max-w-[1218px] flex-col items-center px-6 pb-28 pt-10 lg:flex-row lg:items-end lg:justify-between">
-      <div class="relative z-20 mx-auto flex max-w-xl flex-col items-center md:mx-0 md:items-start">
+      class="relative mx-auto flex max-w-[1400px] flex-col items-center px-6 pb-28 pt-10 lg:flex-row lg:items-center lg:justify-between gap-8">
+      <!-- Hero content -->
+      <div class="relative z-20 flex max-w-xl flex-col items-center md:items-start lg:w-1/2 w-full">
         <div
           class="lg:texl-lg inline-flex items-center gap-3 rounded-full bg-gray-100 p-1.5 pr-4 font-medium md:gap-4 md:pr-7 xl:text-xl">
-          <p id="hero-message-badge-header" class="rounded-full bg-gray-950 px-2 py-1 leading-9 text-white md:px-5">
-            Secure</p>
-          <p id="hero-message-badge-text" class="max-w-[260px]">Private Remote Access 🛡️</p>
+          Secure
+          Private Remote Access 🛡️
         </div>
         <h1 id="hero-header" class="pb-6 pt-8 text-center text-3xl font-bold md:text-left lg:text-5xl xl:text-7xl">
-          Connect Securely, Anywhere.</h1>
-        <p id="hero-subtext" class="pb-10 text-center text-xl opacity-60 md:text-left lg:text-2xl lg:leading-10">
+          Connect Securely, Anywhere.
+        </h1>
+        <p class="mb-8 text-center md:text-left">
           Discover the effortless way to access and manage your digital world with PuppetPC's cutting-edge, encrypted
-          tunneling technology.</p><a href="./docs/download.html"
-          class="hero-cta-button primary-color-bg inline-block rounded-full px-16 py-3 text-lg font-medium text-white transition ease-linear md:py-5 md:text-xl lg:hover:opacity-80 bg-orange-500"><span
-            id="hero-cta-button-text">Start Now</span></a>
+          tunneling technology.
+        </p>
+        <a href="./docs/download.html"
+          class="hero-cta-button primary-color-bg inline-block rounded-full px-16 py-3 text-lg font-medium text-white transition ease-linear md:py-5 md:text-xl lg:hover:opacity-80 bg-orange-500">
+          Start Now
+        </a>
       </div>
 
-      <svg class="absolute bottom-10 left-48 z-0 hidden lg:block" width="1044" height="140" viewBox="0 0 1044 140"
-        fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M2.00006 44.5C88.6667 84.3333 354.9 157.3 546.5 44.4999C738.1 -68.3001 957.833 73.3333 1042 138"
-          stroke="#E9E9E9" stroke-width="3" stroke-linecap="round" stroke-dasharray="20 20" class=""></path>
-      </svg>
-
-    </div><img
-      class="high-res-image seo-image absolute -right-32 -top-32 z-10 hidden h-[750px] w-[750px] rounded-full rounded-tr-none object-cover object-right-top md:block dont-replace"
-      src="assets/images/photo-1606159068539-43f36b99d1b213fe.jpg" alt="hero"
-      data-media="{&quot;id&quot;:&quot;F_m44ut3XTw&quot;,&quot;src&quot;:&quot;unsplash&quot;,&quot;type&quot;:&quot;image&quot;}"
-      oncontextmenu="return false;">
+      <!-- Video -->
+      <div class="relative z-20 w-full lg:w-1/2 mt-8 lg:mt-0">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/9aXF94QAHkA" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
   </section>
   <section id="section1"
     class="code-section relative overflow-hidden font-['IBM_Plex_Sans'] md:overflow-visible lg:pt-20">
