@@ -61,7 +61,7 @@ box-shadow: 0 0 0 2px var(--border-gradient, linear-gradient(#6f55d5, #5739ce)) 
 
 ## All Downloads
 ### Windows
-* [Download .exe](https://api.puppetpc.com/static/release/puppetpc-windows-amd64.exe)
+* [Get from Microsoft Store](https://apps.microsoft.com/detail/9MVBV7R24L6T)
 
 ### Mac
 * [Download for Mac OS amd64](https://api.puppetpc.com/static/release/puppetpc-darwin-amd64)
@@ -88,14 +88,14 @@ Use the following executables for other Linux distributions like Arch Linux, Sla
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     let os = "Windows";
-    let downloadLink = "https://api.puppetpc.com/static/release/puppetpc-windows-amd64.exe";
-    let downloadText = "Download for Windows";
+    let downloadLink = "https://apps.microsoft.com/detail/9MVBV7R24L6T";
+    let downloadText = "Get for Windows";
     let arch = "amd64";
 
     if (navigator.appVersion.indexOf("Win") !== -1) {
         os = "Windows";
-        downloadLink = "https://api.puppetpc.com/static/release/puppetpc-windows-amd64.exe";
-        downloadText = "Download for Windows";
+        downloadLink = "https://apps.microsoft.com/detail/9MVBV7R24L6T";
+        downloadText = "Get for Windows";
     } 
     else if (navigator.appVersion.indexOf("Mac") !== -1) {
         os = "MacOS";
