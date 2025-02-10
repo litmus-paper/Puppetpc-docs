@@ -4,5 +4,10 @@ theme: just-the-docs
 
 url: https://litmus-paper.github.io/Puppetpc-docs
 
+include:
+  - "_astro"
+
+exclude:
+  - '**/*Zone.Identifier'
 # aux_links:
 #   Template Repository: https://github.com/just-the-docs/just-the-docs-template

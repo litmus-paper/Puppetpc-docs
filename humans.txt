@@ -1,0 +1,16 @@
+/* TEAM */
+Team information not available.
+
+/* SITE INFORMATION */
+Site Name: PuppetPC
+Site URL: https://www.puppetpc.com
+
+/* BUILD INFORMATION */
+Build Date: 2025-02-09T15:26:18.631Z
+
+/* TECHNOLOGY */
+Powered by Astro (https://astro.build)
+
+/* CONTACT */
+Email: support@puppetpc.com
+Twitter: @nir_eden
