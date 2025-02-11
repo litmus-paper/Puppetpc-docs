@@ -6,7 +6,7 @@ Site Name: PuppetPC
 Site URL: https://www.puppetpc.com
 
 /* BUILD INFORMATION */
-Build Date: 2025-02-10T13:28:34.185Z
+Build Date: 2025-02-11T10:00:30.721Z
 
 /* TECHNOLOGY */
 Powered by Astro (https://astro.build)
