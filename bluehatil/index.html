@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PuppetPC – גישה פרטית ומאובטחת</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-gray-900 text-white py-12 text-center px-4">
+    <h1 class="text-4xl font-bold mb-4">PuppetPC – גישה פרטית ומאובטחת לכל המערכות שלכם</h1>
+    <p class="text-lg max-w-xl mx-auto">התחברו למכשירים מרוחקים בלי לפתוח פורטים או לחשוף את הרשת</p>
+  </header>
+
+  <!-- Why PuppetPC -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold mb-6 text-gray-700">למה PuppetPC?</h2>
+    <ul class="space-y-4">
+      <li>✅ <strong>פשוט להתקנה:</strong> התקנה מהירה עם פקודה אחת או דרך חנות האפליקציות.</li>
+      <li>🔒 <strong>רשת פרטית מאובטחת:</strong> הכל פועל מאחורי הפיירוול עם הצפנה מקצה לקצה.</li>
+      <li>🔗 <strong>שיתוף גישה קל:</strong> לינק בודד – בלי התקנות, בלי רישום.</li>
+      <li>🛡️ <strong>Zero Trust:</strong> רק משתמשים מורשים מקבלים גישה.</li>
+      <li>💻 <strong>תמיכה בריבוי פלטפורמות:</strong> Windows, macOS, Linux, Raspberry Pi ועוד.</li>
+    </ul>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="bg-white py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-gray-700">שימושים עיקריים</h2>
+      <ul class="list-disc pr-5 space-y-2 text-gray-700">
+        <li>חיבור מאובטח בין עננים היברידיים</li>
+        <li>פיתוח, בדיקות ו-DevOps בלי כאבי ראש</li>
+        <li>תמיכה טכנית מרחוק – ללא סיכוני אבטחה</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="max-w-5xl mx-auto px-6 py-12">
+    <h2 class="text-2xl font-bold mb-6 text-gray-700">איך זה עובד?</h2>
+    <ol class="list-decimal pr-6 space-y-2 text-gray-700">
+      <li>מתקינים את PuppetPC – בקלות.</li>
+      <li>מגדירים Tunnel לשירות הרצוי.</li>
+      <li>חולקים לינק ומתחברים בקליק.</li>
+    </ol>
+    <div class="bg-cyan-100 border-r-4 border-cyan-500 mt-8 p-4 rounded text-gray-800">
+      🎁 <strong>מבצע לכבוד הכנס:</strong> קופון חינם + הדגמה חיה במקום!
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="bg-white py-12 px-6">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-gray-700">השאירו פרטים ונחזור אליכם:</h2>
+
+      <form id="leadForm" action="https://csv-worker.nir-ff7.workers.dev/submit" method="POST"
+        class="bg-gray-100 p-6 rounded-xl shadow space-y-4">
+        <div>
+          <label for="name" class="block mb-1 font-semibold">שם מלא</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border rounded" />
+        </div>
+        <div>
+          <label for="role" class="block mb-1 font-semibold">חברה / תפקיד</label>
+          <input type="text" id="role" name="role" required class="w-full px-4 py-2 border rounded" />
+        </div>
+        <div>
+          <label for="email" class="block mb-1 font-semibold">אימייל</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border rounded" />
+        </div>
+        <button type="submit" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 rounded w-full">
+          הרשם
+        </button>
+      </form>
+
+      <!-- הודעה לאחר שליחה -->
+      <div id="responseMessage" class="mt-6 text-center text-base font-semibold transition-all duration-300"></div>
+
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('leadForm');
+    const responseMessage = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (res.ok) {
+          responseMessage.innerHTML = `
+                <div class="bg-green-100 border border-green-400 text-green-800 rounded-md px-4 py-3 inline-block animate-pulse">
+                🎉 <span class="text-lg font-bold">הפרטים נשלחו בהצלחה!</span>
+                </div>
+            `;
+          form.reset();
+        } else {
+          responseMessage.innerHTML = `
+                <div class="bg-red-100 border border-red-400 text-red-800 rounded-md px-4 py-3 inline-block">
+                ⚠️ <span class="font-semibold">שליחה נכשלה. נסו שוב.</span>
+                </div>
+            `;
+        }
+      } catch (error) {
+        responseMessage.textContent = "🚫 שגיאה בעת שליחה. נסו שוב מאוחר יותר.";
+        responseMessage.classList.remove("text-green-600");
+        responseMessage.classList.add("text-red-600");
+      }
+    });
+  </script>
+
+
+  <!-- CTA -->
+  <section class="text-center py-12 px-6">
+    <h2 class="text-2xl font-bold text-gray-800 mb-4">הדרך הקלה, הפרטית והמאובטחת להתחברות מרחוק</h2>
+    <p class="mb-4">PuppetPC מחבר את כל המערכות לרשת פרטית מאובטחת – בלי פתיחת פורטים.</p>
+    <a href="https://www.puppetpc.com" target="_blank"
+      class="inline-block bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-full text-lg font-semibold transition">
+      בקרו באתר puppetpc.com
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center text-sm py-6 text-gray-600">
+    © 2025 PuppetPC. כל הזכויות שמורות. | <a href="mailto:support@puppetpc.com"
+      class="text-cyan-600 hover:underline">support@puppetpc.com</a>
+  </footer>
+
+</body>
+
+</html>
