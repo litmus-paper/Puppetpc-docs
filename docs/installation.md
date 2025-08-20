@@ -28,6 +28,11 @@ Before beginning the installation process, ensure that your system meets the fol
 2. **Verify Installation:** Open the System Tray. Click on the PuppetPC icon. Select "Open Dashboard"
 3. **Control Interface:** The control interface will launch in your default web browser.
 
+## Installation on Mac
+1. **Download from App Store:** Visit the [Apple App Store](https://apps.apple.com/us/app/puppetpc/id6740270536) and install PuppetPC.
+2. **Launch Application:** Open PuppetPC from your Applications folder or Launchpad.
+3. **Control Interface:** The control interface will launch in your default web browser.
+
 ## Installation on Linux (PC)
 1. **Open Terminal:** Launch your terminal.
 2. **Download and Install:** Use the following command to download and install PuppetPC:

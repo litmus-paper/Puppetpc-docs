@@ -64,8 +64,7 @@ box-shadow: 0 0 0 2px var(--border-gradient, linear-gradient(#6f55d5, #5739ce)) 
 * [Get from Microsoft Store](https://apps.microsoft.com/detail/9MVBV7R24L6T)
 
 ### Mac
-* [Download for Mac OS amd64](https://api.puppetpc.com/static/release/puppetpc-darwin-amd64)
-* [Download for Mac OS arm64](https://api.puppetpc.com/static/release/puppetpc-darwin-arm64)  
+* [Get from Apple App Store](https://apps.apple.com/us/app/puppetpc/id6740270536)  
 
 ### Debian Linux
 Use this for Ubuntu, Linux Mint, Raspbian, Kali Linux, and other Debian-based Linux distributions.  
@@ -99,9 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
     } 
     else if (navigator.appVersion.indexOf("Mac") !== -1) {
         os = "MacOS";
-        arch = navigator.userAgent.indexOf("arm64") !== -1 ? "arm64" : "amd64";
-        downloadLink = `https://api.puppetpc.com/static/release/puppetpc-darwin-${arch}`;
-        downloadText = `Download for MacOS (${arch})`;
+        downloadLink = "https://apps.apple.com/us/app/puppetpc/id6740270536";
+        downloadText = "Get for MacOS";
     } 
     else if (navigator.appVersion.indexOf("X11") !== -1 || navigator.appVersion.indexOf("Linux") !== -1) {
         os = "Linux";
